@@ -1,8 +1,8 @@
 // implement your posts router here
 const express = require('express');
+const router = express.Router();
 const { restart } = require('nodemon');
 const Post = require('./posts-model');
-const router = express.Router();
 
 router.get('/', (req, res) => {
     Post.find()
@@ -13,3 +13,5 @@ router.get('/', (req, res) => {
             res.status(500).json({ message: "The posts information could not be retrieved" });
         })
 })
+
+module.exports = router;
